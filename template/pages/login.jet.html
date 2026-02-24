@@ -1,36 +1,32 @@
 <div class="container">
-  <h2>Login with your account</h2>
+  <h2>アカウントでログイン</h2>
   <p>
-    In order to enable the landing page and other features, you will have to
-    login.
+    トップページ（ランディングページ）やその他の機能を有効にするには、ログインする必要があります。
   </p>
   <p>
-    Note 15/08/2023: By now the only feature you will get is the landing page.
+    注（2023/08/15）: 現時点で利用できる機能はトップページ（ランディングページ）のみです。
   </p>
   <p>
-    You can only login using your account's cookie, check out
+    ログインはアカウントの Cookie を使って行います。取得方法は
     <a
       href="https://codeberg.org/VnPower/pixivfe/wiki/How-to-get-the-cookie-%28PIXIVFE_TOKEN%29"
-      >this page</a
+      >こちらのページ</a
     >
-    to see how to get it.
+    を参照してください。
   </p>
   <p>
-    Note that you will get logged out automatically every time the server
-    updates, if you are logged in before but got logged out recently, it is
-    probably because the instance owner restarted the server.
+    サーバーが更新されるたびに自動的にログアウトされます。以前ログインできていたのに最近ログアウトされた場合、インスタンス管理者がサーバーを再起動した可能性があります。
   </p>
   <form action="/settings/token" method="post">
     <input type="text" name="token" autocomplete="off" />
-    <input type="submit" value="Apply" />
+    <input type="submit" value="適用" />
   </form>
   <hr />
-  <h2>Logout</h2>
+  <h2>ログアウト</h2>
   <p>
-    You can safely logout here. This button will just delete the token directly
-    from this session.
+    ここから安全にログアウトできます。このボタンは、このセッションからトークンを削除するだけです。
   </p>
   <form action="/settings/logout" method="post">
-    <input type="submit" value="Logout!" />
+    <input type="submit" value="ログアウト" />
   </form>
 </div>
