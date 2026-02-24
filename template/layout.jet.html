@@ -17,7 +17,7 @@
     />
 
     <link href="/css/style.css" rel="stylesheet" />
-    <link rel="preload" href="https://fonts.gstatic.com/s/merriweathersans/v28/2-c79IRs1JiJN1FRAMjTN5zd9vgsFHXwcjfj9zlcxZI.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="https://fonts.gstatic.com/s/merriweathersans/v28/2-c79IRs1JiJN1FRAMjTN5zd9vgsFHXwcjfj9zlcxZI.woff2" as="font" type="font/woff2" crossorigin="" />
     {{ if BaseURL }}
     <meta property="og:site_name" content="PixivFE" />
     <meta property="og:title" content="{{ title }}" />
@@ -52,31 +52,6 @@
       property="og:description"
       content="このページを PixivFE で表示します。Pixiv のプライバシーに配慮したフロントエンドです。"
     />
-    <style>
-    nav .navigation-wrapper .sidebar {
-    background-color: #131516;
-    position: absolute;
-    padding-top: 6px;
-    left: 0;
-    width: 220px;
-    transform: translateX(-220px);
-    transition: transform 250ms cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: 999;
-    padding-bottom: 100%;
-    min-height: 110vh;
-}
-nav .navigation-wrapper .navbar-brand span {
-    font-family: "Merriweather Sans", "Roboto", "Open Sans", "Noto Sans", sans-serif, "Noto Sans CJK JP";
-    font-weight: 700;
-    font-style: italic;
-    letter-spacing: -1.0px;
-    text-decoration: none;
-    color: #fff;
-    display: inline-block;
-    transition: transform 0.3s;
-    font-size: 1.3em;
-}
-    </style>
     <meta property="og:image" content="{{ BaseURL }}/assets/banner.jpg" />
     {{ end }} {{ end }}
   </head>
@@ -169,5 +144,75 @@ nav .navigation-wrapper .navbar-brand span {
       <div class="navbar-shadow"></div>
     </nav>
     {{ embed() }}
+
+    <div id="cookieConsentBanner" class="cookie-consent-banner">
+      <div class="cookie-consent-content">
+        <div class="cookie-consent-text">
+          このサイトでは、検索設定の保存など、サービスの改善のために Cookie を使用しています。
+          続行することで、
+          <a href="https://wholphin.net/privacy" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+          に同意したものとみなされます。
+        </div>
+        <div class="cookie-consent-actions">
+          <button class="cookie-consent-btn cookie-consent-btn-decline" type="button" onclick="cookieConsent.decline()">拒否</button>
+          <button class="cookie-consent-btn cookie-consent-btn-accept" type="button" onclick="cookieConsent.accept()">同意する</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const cookieConsent = {
+        getCookie(name) {
+          return document.cookie.split("; ").reduce((r, v) => {
+            const parts = v.split("=");
+            return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+          }, "");
+        },
+
+        setCookie(name, value, days = 365) {
+          const expires = new Date(Date.now() + days * 864e5).toUTCString();
+          document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+        },
+
+        init() {
+          const consent = this.getCookie("cookie_consent");
+          if (!consent) {
+            setTimeout(() => {
+              const banner = document.getElementById("cookieConsentBanner");
+              if (banner) {
+                banner.classList.add("show");
+              }
+            }, 1000);
+          }
+        },
+
+        accept() {
+          this.setCookie("cookie_consent", "accepted", 365);
+          this.hide();
+        },
+
+        decline() {
+          this.setCookie("cookie_consent", "declined", 365);
+          this.setCookie("safesearch", "", -1);
+          this.hide();
+        },
+
+        hide() {
+          const banner = document.getElementById("cookieConsentBanner");
+          if (banner) {
+            banner.classList.remove("show");
+            setTimeout(() => {
+              banner.style.display = "none";
+            }, 300);
+          }
+        },
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => cookieConsent.init());
+      } else {
+        cookieConsent.init();
+      }
+    </script>
   </body>
 </html>
