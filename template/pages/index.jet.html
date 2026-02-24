@@ -1,32 +1,32 @@
 <div class="container">
   {{ if Token }}
   <div class="switcher">
-    <span class="switch-title">Filter</span>
-    <a href="/?mode=all" class="switch-button">All</a>
+    <span class="switch-title">フィルター</span>
+    <a href="/?mode=all" class="switch-button">すべて</a>
     <a href="/?mode=r18" class="switch-button">R-18</a>
   </div>
   <div class="component-header">
-    <h2>Newest works by users you follow</h2>
-    <a href="/self/following_works">See more</a>
+    <h2>フォロー中ユーザーの新着作品</h2>
+    <a href="/self/following_works">もっと見る</a>
   </div>
   <div class="artwork-container-scroll">
     {{ include "components/small-tn" Artworks.Following }}
   </div>
   <br />
-  <h2>Recently completed commissions</h2>
+  <h2>最近完了したコミッション</h2>
   <div class="artwork-container">
     {{ include "components/small-tn" Artworks.Commissions }}
   </div>
   <br />
-  <h2>Recommended works</h2>
+  <h2>おすすめ作品</h2>
   <div class="artwork-container">
     {{ include "components/small-tn" Artworks.Recommended }}
   </div>
   <br />
 
   <div class="component-header">
-    <h2>Daily rankings</h2>
-    <a href="/ranking">See more</a>
+    <h2>デイリーランキング</h2>
+    <a href="/ranking">もっと見る</a>
   </div>
   <div class="artwork-container-scroll">
     {{ range rank := Artworks.Rankings }}
@@ -80,32 +80,31 @@
   </div>
   <br /> -->
 
-  <h2>Works by recommended users</h2>
+  <h2>おすすめユーザーの作品</h2>
   <div class="artwork-container">
     {{ include "components/small-tn" Artworks.Users }}
   </div>
   <br />
   {{ range Artworks.RecommendByTags }}
-  <h2>Recommended illustrations tagged #{{.Name}}</h2>
+  <h2>#{{.Name}} のおすすめイラスト</h2>
   <div class="artwork-container">
     {{ include "components/small-tn" .Artworks }}
   </div>
   <br />
   {{ end }}
-  <h2>Newest works</h2>
+  <h2>新着作品</h2>
   <div class="artwork-container-scroll">
     {{ include "components/small-tn" Artworks.Newest }}
   </div>
   {{ else }}
-  <p><a href="/login">Login</a> to access more features!</p>
+  <p>より多くの機能にアクセスするには <a href="/login">ログイン</a> してください！</p>
   <p>
-    Enjoying this frontend so far? I need your opinions and ideas to improve
-    this UI! Share them
-    <a href="https://codeberg.org/VnPower/pixivfe/issues/21">here</a>!
+    このフロントエンドはいかがですか？ UI 改善のために、ご意見やアイデアを募集しています。
+    <a href="https://codeberg.org/VnPower/pixivfe/issues/21">こちら</a> から共有してください！
   </p>
   <div class="component-header">
-    <h2>Daily rankings</h2>
-    <a href="/ranking">See more</a>
+    <h2>デイリーランキング</h2>
+    <a href="/ranking">もっと見る</a>
   </div>
   <div class="artwork-container-scroll">
     {{ range rank := Artworks.Rankings }}
