@@ -3,7 +3,7 @@
   <div class="illust-images">
     {{ range index := Illust.Images }}
     <a href="{{ .Original }}" target="_blank">
-      <img src="{{ .Large }}" alt="Page {{ index }}" />
+      <img src="{{ .Large }}" alt="{{ index }} ページ" />
     </a>
     {{ end }}
   </div>
@@ -19,12 +19,12 @@
         poster="{{ Illust.Images[0].Large }}"
         src="https://ugoira.com/api/mp4/{{ Illust.ID }}"
       >
-        Unable to load ugoira.
+        うごイラを読み込めませんでした。
       </video>
     </a>
   </div>
   <a href="https://ugoira.com/i/{{ Illust.ID }}"
-    >Go to ugoira.com for more options</a
+    >より多くのオプションを見るには ugoira.com へ</a
   >
   {{ end }}
 
@@ -52,19 +52,19 @@
   </div>
   <div class="illust-tags">
     <span class="illust-tag-attr">
-      <img src="/assets/eye.png" alt="Views" />
+      <img src="/assets/eye.png" alt="閲覧数" />
       {{ Illust.Views }}
     </span>
     <span class="illust-tag-attr">
-      <img src="/assets/heart-solid.png" alt="Bookmarks" />
+      <img src="/assets/heart-solid.png" alt="ブックマーク数" />
       {{ Illust.Bookmarks }}
     </span>
     <span class="illust-tag-attr">
-      <img src="/assets/like.png" alt="Likes" />
+      <img src="/assets/like.png" alt="いいね数" />
       {{ Illust.Likes }}
     </span>
     <span class="illust-tag-attr">
-      <img src="/assets/calendar.png" alt="Date" />
+      <img src="/assets/calendar.png" alt="投稿日" />
       {{ parseTime: Illust.Date }}
     </span>
   </div>
@@ -72,7 +72,7 @@
   <div class="illust-tags">
     {{ if Illust.AiType == 2 }}
     <span class="illust-tag">
-      <span class="illust-tag-name" id="highlight">AI-generated</span>
+      <span class="illust-tag-name" id="highlight">AI生成</span>
     </span>
     {{ end }} {{ range Illust.Tags }} {{ if isEmphasize(.Name) }}
     <span class="illust-tag">
@@ -93,8 +93,7 @@
   <br />
   <div class="illust-other-works">
     <a href="/users/{{ Illust.User.ID }}"
-      ><img src="{{ Illust.User.Avatar }}" alt="{{ Illust.User.Name }}" /> Other
-      works by {{ Illust.User.Name }}
+      ><img src="{{ Illust.User.Avatar }}" alt="{{ Illust.User.Name }}" /> {{ Illust.User.Name }} の他の作品
       <span class="special-symbol">&raquo;</span>
     </a>
     <div class="artwork-container-scroll">
@@ -106,11 +105,11 @@
     </div>
   </div>
   <hr />
-  <h2>Comments</h2>
+  <h2>コメント</h2>
   {{ if Illust.CommentDisabled == 1 }}
-  <p>The creator turned comments off</p>
+  <p>投稿者がコメントを無効にしています</p>
   {{ else if Illust.Comments == 0 }}
-  <p>There are no comments yet</p>
+  <p>コメントはまだありません</p>
   {{ else }} {{ range Illust.CommentsList }}
   <div class="comment">
     <img class="comment-avatar" src="{{ .Avatar }}" alt="{{ .AuthorName }}" />
@@ -132,7 +131,7 @@
   {{ end }} {{ end }}
 </div>
 <div class="container">
-  <h2>Related works</h2>
+  <h2>関連作品</h2>
   <div class="artwork-container">
     {{ include "components/small-tn" Illust.RelatedWorks }}
   </div>
