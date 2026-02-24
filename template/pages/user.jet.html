@@ -7,16 +7,16 @@
 {{ end }}
 <div class="container user">
   <div class="user-avatar">
-    <img src="{{ User.Avatar }}" alt="avatar" />
+    <img src="{{ User.Avatar }}" alt="アイコン" />
   </div>
   <div class="user-details">
     <h2>{{ User.Name }}</h2>
-    <small> {{ User.Following }} Following | {{ User.MyPixiv }} MyPixiv </small>
+    <small> {{ User.Following }} フォロー中 | {{ User.MyPixiv }} MyPixiv </small>
     <div class="user-social">
       {{ if User.Webpage }}
       <span
         ><a href="{{ User.Webpage }}"
-          ><img src="/assets/globe.png" alt="Webpage" /></a
+          ><img src="/assets/globe.png" alt="Webサイト" /></a
       ></span>
       {{ end }} {{ range index, item := User.Social }}
       <span>
@@ -29,24 +29,24 @@
     <p>{{ raw: parsePixivRedirect(User.Comment) }}</p>
   </div>
   <div class="switcher">
-    <div class="switch-title">Category</div>
+    <div class="switch-title">カテゴリ</div>
     <a href="/users/{{ User.ID }}/artworks#checkpoint" class="switch-button"
-      >All</a
+      >すべて</a
     >
     <a
       href="/users/{{ User.ID }}/illustrations#checkpoint"
       class="switch-button"
-      >Illustrations</a
+      >イラスト</a
     >
     <a href="/users/{{ User.ID }}/manga#checkpoint" class="switch-button"
-      >Mangas</a
+      >マンガ</a
     >
     <a href="/users/{{ User.ID }}/bookmarks#checkpoint" class="switch-button"
-      >Bookmarks</a
+      >ブックマーク</a
     >
   </div>
   <div>
-    <h1 id="checkpoint">Illustrations and Mangas</h1>
+    <h1 id="checkpoint">イラスト・マンガ</h1>
 
     <!-- <div>
                     {{ range User.FrequentTags }}
@@ -70,7 +70,7 @@
   </div>
   <div class="pagination">
     {{ url := "/users/" + User.ID + "/" + Category + "?page="}}
-    <small>Page {{ Page }}/{{ PageLimit }}</small>
+    <small>{{ Page }}/{{ PageLimit }} ページ</small>
     <br />
     {{ raw: createPaginator(url, "#checkpoint", Page, PageLimit) }}
   </div>
