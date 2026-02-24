@@ -1,4 +1,4 @@
-# PixivFE
+# PixivFE-Fork
 
 A privacy-respecting alternative front-end for Pixiv that doesn't suck
 
