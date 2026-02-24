@@ -1,9 +1,9 @@
 <div class="container">
-    <h2>Login</h2>
-    <p>Go to <a href="/login">this page</a> to login</p>
-    <h2>Settings</h2>
+    <h2>ログイン</h2>
+    <p>ログインするには <a href="/login">こちらのページ</a> へ移動してください</p>
+    <h2>設定</h2>
     <div class="form-field">
-        <h3>Image proxy server</h3>
+        <h3>画像プロキシサーバー</h3>
         <form action="/settings/image_server" method="post">
             <input type="radio" name="image-proxy" id="image-proxy" value="piv.deception.world" />
             <label for="image-proxy">piv.deception.world</label>
@@ -23,14 +23,14 @@
             <input type="radio" name="image-proxy" id="image-proxy" value="pixiv.cat" />
             <label for="image-proxy">pixiv.cat</label>
             <br />
-            <input type="submit" value="Apply" />
+            <input type="submit" value="適用" />
         </form>
         <br />
         <form action="/settings/image_server" method="post">
-            <label for="image-proxy">Custom image proxy server</label>
-            <input type="text" name="image-proxy" id="image-proxy" placeholder="Paste the address here..."
+            <label for="image-proxy">カスタム画像プロキシサーバー</label>
+            <input type="text" name="image-proxy" id="image-proxy" placeholder="ここにアドレスを貼り付け..."
                 autocomplete="off" />
-            <input type="submit" value="Apply" />
+            <input type="submit" value="適用" />
         </form>
     </div>
 </div>
