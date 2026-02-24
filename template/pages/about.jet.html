@@ -1,28 +1,23 @@
 <div class="container">
-  <h1>Server information</h1>
+  <h1>サーバー情報</h1>
   <ul>
     <li>
-      <b>Version:</b> {{ Version }}<br />PixivFE's version this server is
-      running
+      <b>バージョン:</b> {{ Version }}<br />このサーバーで稼働している PixivFE のバージョン
     </li>
     <li>
-      <b>Started PixivFE (UTC)</b>: {{ Time }} <br />The date when PixivFE
-      started on this server
+      <b>PixivFE 起動時刻（UTC）</b>: {{ Time }} <br />このサーバーで PixivFE が起動した日時
     </li>
     <li>
       <b>Base URL</b>: {{ if isset(BaseURL) and !BaseURL == "localhost" }} {{
       BaseURL }} <br />
-      Meta tags are available for embeds {{ else }} Not set <br />
-      Meta tags are not available, embeds may not work {{ end }}
+      埋め込み用のメタタグが利用できます {{ else }} 未設定 <br />
+      メタタグが利用できないため、埋め込みが動作しない可能性があります {{ end }}
     </li>
     <li>
-      <b>Default image proxy server</b>: {{ ImageProxy }}<br />The default image
-      proxy server that was set on this server, used to proxy images from
-      i.pximg.net
+      <b>デフォルト画像プロキシサーバー</b>: {{ ImageProxy }}<br />このサーバーに設定されている既定の画像プロキシです。i.pximg.net の画像をプロキシするために使用されます。
     </li>
     <li>
-      <b>Accept-Language header</b>: {{ AcceptLanguage }}<br />The value of the
-      Accept-Language header this server uses to request to Pixiv's APIs.
+      <b>Accept-Language ヘッダー</b>: {{ AcceptLanguage }}<br />このサーバーが Pixiv の API にリクエストする際に使用する Accept-Language ヘッダーの値です。
     </li>
   </ul>
   <p></p>
