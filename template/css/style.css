@@ -719,4 +719,15 @@ nav .navigation-wrapper .sidebar {
     padding-bottom: 100%;
     min-height: 110vh;
 }
+nav .navigation-wrapper .navbar-brand span {
+    font-family: "Merriweather Sans", "Roboto", "Open Sans", "Noto Sans", sans-serif, "Noto Sans CJK JP";
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -1.0px;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    transition: transform 0.3s;
+    font-size: 1.3em;
+}
 /*# sourceMappingURL=style.css.map */
