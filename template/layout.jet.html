@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     {{ title := "" }} {{ if isset(Title) }} {{ title = Title }} {{ else }} {{
     title = "PixivFE" }} {{ end }}
     <title>{{ title }} - PixivFE</title>
     <meta charset="UTF-8" />
-    <meta name="description" content="View this page on PixivFE." />
+    <meta name="description" content="このページを PixivFE で表示します。" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/css/style.css" rel="stylesheet" />
 
@@ -20,19 +20,19 @@
     Illust.XRestrict }}
     <meta
       property="og:description"
-      content="View this artwork by {{ Illust.User.Name }} on PixivFE."
+      content="{{ Illust.User.Name }} の作品を PixivFE で表示します。"
     />
     <meta property="og:image" content="{{ Illust.Images[0].Large }}" />
     {{ else }}
     <meta
       property="og:description"
-      content="View this (explicit) artwork by {{ Illust.User.Name }} on PixivFE."
+      content="{{ Illust.User.Name }} の（成人向け）作品を PixivFE で表示します。"
     />
     <meta property="og:image" content="{{ BaseURL }}/assets/banner.jpg" />
     {{ end }} {{ else if PageType == "user" }}
     <meta
       property="og:description"
-      content="View this user's profile on PixivFE."
+      content="このユーザーのプロフィールを PixivFE で表示します。"
     />
     {{ if User.BackgroundImage }}
     <meta property="og:image" content="{{ User.BackgroundImage }}" />
@@ -41,7 +41,7 @@
     {{ end }} {{ end }} {{ else }}
     <meta
       property="og:description"
-      content="View this page on PixivFE. A privacy respecting frontend for Pixiv."
+      content="このページを PixivFE で表示します。Pixiv のプライバシーに配慮したフロントエンドです。"
     />
     <meta property="og:image" content="{{ BaseURL }}/assets/banner.jpg" />
     {{ end }} {{ end }}
@@ -55,7 +55,7 @@
           <label for="sidebar-toggler" class="sidebar-label">
             <img
               src="/assets/menu-thin.png"
-              alt="Menu"
+              alt="メニュー"
               width="30"
               height="30"
             />
@@ -64,37 +64,37 @@
           <div class="sidebar">
             <ul class="sidebar-list">
               <a class="sidebar-item" href="/discovery">
-                <img src="/assets/compass.png" alt="icon" />Discovery</a
+                <img src="/assets/compass.png" alt="icon" />見つける</a
               >
               <a class="sidebar-item" href="/ranking">
-                <img src="/assets/crown.png" alt="icon" />Ranking</a
+                <img src="/assets/crown.png" alt="icon" />ランキング</a
               >
               <a class="sidebar-item" href="/newest">
-                <img src="/assets/sparkling.png" alt="icon" />Newest</a
+                <img src="/assets/sparkling.png" alt="icon" />新着</a
               >
               <br />
               <a class="sidebar-item" href="/self/following_works">
-                <img src="/assets/users.png" alt="icon" />Latest by followed</a
+                <img src="/assets/users.png" alt="icon" />フォロー中の最新</a
               >
               <a class="sidebar-item" href="/self/bookmarks">
-                <img src="/assets/heart.png" alt="icon" />Your bookmarks</a
+                <img src="/assets/heart.png" alt="icon" />ブックマーク</a
               >
               <a class="sidebar-item" href="/self">
-                <img src="/assets/user.png" alt="icon" />Your profile</a
+                <img src="/assets/user.png" alt="icon" />プロフィール</a
               >
               <br />
               <a class="sidebar-item" href="/settings">
-                <img src="/assets/settings.png" alt="icon" />Settings</a
+                <img src="/assets/settings.png" alt="icon" />設定</a
               >
               <a class="sidebar-item" href="/about">
-                <img src="/assets/about.svg" alt="icon" />About</a
+                <img src="/assets/about.svg" alt="icon" />このサイトについて</a
               >
               <br />
               <a
                 class="sidebar-item"
                 href="https://codeberg.org/vnpower/pixivfe"
               >
-                <img src="/assets/globe.png" alt="icon" />Source code</a
+                <img src="/assets/globe.png" alt="icon" />ソースコード</a
               >
             </ul>
           </div>
@@ -116,18 +116,18 @@
               type="text"
               name="name"
               class="search-form-text"
-              placeholder="⌕ Search artworks..."
+              placeholder="⌕ 作品を検索..."
             />
             <input type="submit" hidden />
           </form>
         </span>
         <span>
           <span class="navbar-entry" id="search-page-entry">
-            <img src="/assets/search.svg" alt="Search" />
+            <img src="/assets/search.svg" alt="検索" />
           </span>
           <span class="navbar-entry">
             <a href="/settings">
-              <img src="/assets/cog.svg" alt="Settings" />
+              <img src="/assets/cog.svg" alt="設定" />
             </a>
           </span>
         </span>
