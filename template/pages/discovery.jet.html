@@ -1,16 +1,16 @@
 <div class="container">
-  <h2>Discover works</h2>
+  <h2>作品を探す</h2>
   <div class="switcher">
     {{ url := "/discovery?mode=" }}
-    <div class="switch-title">Filter</div>
-    <a href="{{url}}all" class="switch-button">All</a>
-    <a href="{{url}}safe" class="switch-button">Safe</a>
+    <div class="switch-title">フィルター</div>
+    <a href="{{url}}all" class="switch-button">すべて</a>
+    <a href="{{url}}safe" class="switch-button">セーフ</a>
     <a href="{{url}}r18" class="switch-button">R-18</a>
   </div>
   <div class="artwork-container">
     {{ include "components/small-tn" Artworks }}
   </div>
   <div class="pagination">
-    <a href="" class="pagination-button">Reload</a>
+    <a href="" class="pagination-button">再読み込み</a>
   </div>
 </div>
